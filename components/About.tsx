@@ -55,7 +55,7 @@ export default function About() {
                   alt={profile.photoAlt}
                   fill
                   sizes="(min-width: 1024px) 440px, 90vw"
-                  className="object-cover object-center grayscale transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.02] group-hover:grayscale-0"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
                 <div
                   className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"

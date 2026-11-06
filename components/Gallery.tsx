@@ -28,7 +28,7 @@ export default function Gallery() {
         />
 
         <div className="mt-12 grid gap-4 lg:mt-16 lg:grid-cols-12 lg:gap-6">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="min-w-0 lg:col-span-5">
             <figure className="lg:sticky lg:top-28">
               <div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-line bg-card-muted">
                 <Image
@@ -56,12 +56,12 @@ export default function Gallery() {
             </figure>
           </Reveal>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+          <div className="grid min-w-0 gap-4 sm:grid-cols-2 lg:col-span-7">
             {projects.map((project, index) => (
               <Reveal
                 key={project.slug}
                 delay={index * 0.04}
-                className={cn(index === projects.length - 1 && "sm:col-span-2")}
+                className={cn("min-w-0", index === projects.length - 1 && "sm:col-span-2")}
               >
                 <Link
                   href={`/projects/${project.slug}`}
