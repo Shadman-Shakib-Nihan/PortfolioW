@@ -50,61 +50,67 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <div className="relative isolate overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-        <div className="absolute inset-x-0 top-0 h-[32rem] bg-grid opacity-40 mask-fade" />
-        <div className="absolute -top-32 right-[10%] size-80 rounded-full bg-violet-600/15 blur-[120px]" />
-        <div className="absolute left-[5%] top-40 size-72 rounded-full bg-sky-500/10 blur-[120px]" />
+        <div className="absolute inset-x-0 top-0 h-[44rem] bg-grid opacity-50 mask-fade" />
+        <div className="absolute -top-40 right-[8%] size-[28rem] rounded-full bg-accent/10 blur-[150px]" />
       </div>
 
-      <div className="container-page pb-20 pt-8 md:pb-28 md:pt-12">
+      <div className="container-page pb-20 pt-28 md:pb-28 md:pt-32">
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-2 rounded-full py-2 text-sm text-muted transition-colors hover:text-foreground"
+          className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-accent"
         >
-          <ArrowLeft className="size-4" aria-hidden="true" />
+          <ArrowLeft
+            className="size-3.5 transition-transform group-hover:-translate-x-0.5"
+            aria-hidden="true"
+          />
           All projects
         </Link>
 
-        <header className="mt-8 grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
+        <header className="mt-10 grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
           <div>
             <div className="flex flex-wrap items-center gap-3">
-              <StatusBadge status={project.status} />
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+              <span className="font-mono text-[10px] tabular-nums text-accent">
+                {String(currentIndex + 1).padStart(2, "0")}
+              </span>
+              <span className="h-px w-6 bg-line" aria-hidden="true" />
+              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted">
                 {project.category}
               </span>
+              <StatusBadge status={project.status} />
             </div>
 
-            <h1 className="mt-5 text-balance text-4xl font-medium leading-[1.06] tracking-[-0.04em] sm:text-5xl">
+            <h1 className="mt-5 text-balance text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.05em]">
               {project.title}
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">{project.tagline}</p>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">{project.tagline}</p>
 
             {project.research ? (
-              <blockquote className="mt-5 border-l-2 border-accent/45 pl-4 text-sm italic leading-6 text-muted">
+              <blockquote className="mt-5 border-l border-accent/50 pl-4 text-sm italic leading-6 text-foreground/75">
                 {project.research.thesisTitle}
               </blockquote>
             ) : null}
 
             <p className="mt-5 max-w-xl text-sm leading-7 text-muted">{project.description}</p>
 
-            <ul className="mt-5 flex flex-wrap gap-1.5">
+            <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
               {project.tech.map((tech) => (
                 <li
                   key={tech}
-                  className="rounded-md border border-line/80 bg-card/60 px-2.5 py-1 font-mono text-[10px] text-muted"
+                  className="font-mono text-[10px] uppercase tracking-[0.1em] text-foreground/65"
                 >
                   {tech}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               {project.github ? (
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-line bg-card/70 px-5 text-sm font-medium transition-colors hover:border-accent/40 hover:bg-card-muted"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-line px-5 text-sm font-medium transition-colors hover:border-accent/50 hover:text-accent"
                 >
                   <GithubIcon />
                   Source code
@@ -116,7 +122,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   href={project.demo}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-accent px-5 text-sm font-medium text-white transition-colors hover:bg-accent/90"
                 >
                   <ExternalIcon />
                   Live demo
@@ -126,7 +132,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.research ? (
                 <a
                   href="#research"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-line bg-card/70 px-5 text-sm font-medium transition-colors hover:border-accent/40 hover:bg-card-muted"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-line px-5 text-sm font-medium transition-colors hover:border-accent/50 hover:text-accent"
                 >
                   <FlaskConical className="size-4" aria-hidden="true" />
                   Research record
@@ -135,12 +141,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
 
-          <div className="card-inset overflow-hidden rounded-2xl border border-line bg-card shadow-2xl shadow-black/10">
+          <div className="overflow-hidden rounded-sm border border-line bg-card">
             <ProjectVisual project={project} size="detail" />
           </div>
         </header>
 
-        <div className="mt-14 grid gap-12 border-t border-line pt-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
+        <div className="mt-16 grid gap-12 border-t border-line pt-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
           <div className="min-w-0 space-y-12">
             <ContentSection number="01" title="The problem" headingId="problem-heading">
               <p>{project.problem}</p>
@@ -156,9 +162,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {project.architecture.map((step, index) => (
                   <li
                     key={step.title}
-                    className="card-inset rounded-xl border border-line bg-card p-5"
+                    className="rounded-sm border border-line bg-surface/60 p-5"
                   >
-                    <span className="font-mono text-[10px] text-accent/80">
+                    <span className="font-mono text-[10px] text-accent">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <h3 className="mt-2 text-sm font-medium">{step.title}</h3>
@@ -174,14 +180,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 title={project.research ? "Research scope" : "Key features"}
                 headingId="highlights-heading"
               />
-              <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+              <ul className="mt-5 grid gap-x-6 gap-y-0 border-t border-line sm:grid-cols-2">
                 {project.highlights.map((highlight) => (
                   <li
                     key={highlight}
-                    className="flex items-start gap-2.5 rounded-lg border border-line/70 bg-card/40 px-3.5 py-3 text-sm text-foreground/80"
+                    className="flex items-start gap-2.5 border-b border-line py-3.5 text-sm text-foreground/80"
                   >
                     <Check
-                      className="mt-0.5 size-3.5 shrink-0 text-emerald-500 dark:text-emerald-400"
+                      className="mt-0.5 size-3.5 shrink-0 text-accent"
                       aria-hidden="true"
                     />
                     {highlight}
@@ -213,8 +219,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   headingId="research-heading"
                 />
 
-                <div className="mt-5 rounded-xl border border-amber-500/25 bg-amber-500/5 p-4">
-                  <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300">
+                <div className="mt-5 rounded-sm border border-accent/25 bg-accent-soft p-4">
+                  <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-accent">
                     <FlaskConical className="size-3.5" aria-hidden="true" />
                     Academic research · not published
                   </div>
@@ -228,7 +234,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     return (
                       <div
                         key={area.label}
-                        className="card-inset rounded-xl border border-line bg-card p-4"
+                        className="rounded-sm border border-line bg-surface/60 p-4"
                       >
                         <div className="flex items-start justify-between gap-3">
                           <h3 className="text-sm font-medium">{area.label}</h3>
@@ -236,8 +242,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                             className={cn(
                               "shrink-0 rounded-full border px-2 py-0.5 font-mono text-[8px] uppercase tracking-[0.1em]",
                               notPublished
-                                ? "border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-300"
-                                : "border-sky-500/25 bg-sky-500/10 text-sky-700 dark:text-sky-300",
+                                ? "border-accent/25 bg-accent-soft text-accent"
+                                : "border-line bg-surface text-muted",
                             )}
                           >
                             {notPublished ? "Not published" : "To be documented"}
@@ -254,7 +260,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <aside>
             <div className="space-y-4 lg:sticky lg:top-28">
-              <div className="card-inset rounded-2xl border border-line bg-card p-5">
+              <div className="rounded-sm border border-line bg-surface/60 p-5">
                 <h2 className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted">
                   Project details
                 </h2>
@@ -285,7 +291,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </dl>
               </div>
 
-              <div className="rounded-2xl border border-line bg-card/60 p-5">
+              <div className="rounded-sm border border-line bg-surface/60 p-5">
                 <p className="text-sm font-medium">Want to dig deeper?</p>
                 <p className="mt-1.5 text-xs leading-6 text-muted">
                   Happy to walk through the architecture, trade-offs, or research direction.
@@ -295,13 +301,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     href={`mailto:${profile.email}?subject=${encodeURIComponent(
                       `Question about ${project.title}`,
                     )}`}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-4 py-2.5 text-xs font-medium text-background transition-colors hover:bg-foreground/90"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-accent px-4 py-2.5 text-xs font-medium text-white transition-colors hover:bg-accent/90"
                   >
                     Email me
                   </a>
                   <Link
                     href="/#contact"
-                    className="inline-flex w-full items-center justify-center rounded-full border border-line px-4 py-2.5 text-xs font-medium transition-colors hover:bg-card-muted"
+                    className="inline-flex w-full items-center justify-center rounded-full border border-line px-4 py-2.5 text-xs font-medium transition-colors hover:border-accent/50 hover:text-accent"
                   >
                     Contact
                   </Link>
@@ -317,7 +323,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         >
           <Link
             href={`/projects/${previousProject.slug}`}
-            className="group rounded-xl border border-line bg-card/50 p-4 transition-colors hover:border-accent/35 hover:bg-card"
+            className="group rounded-sm border border-line bg-surface/50 p-4 transition-colors hover:border-accent/35 hover:bg-surface"
           >
             <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
               <ArrowLeft className="size-3" aria-hidden="true" />
@@ -330,7 +336,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <Link
             href={`/projects/${nextProject.slug}`}
-            className="group rounded-xl border border-line bg-card/50 p-4 text-right transition-colors hover:border-accent/35 hover:bg-card"
+            className="group rounded-sm border border-line bg-surface/50 p-4 text-right transition-colors hover:border-accent/35 hover:bg-surface"
           >
             <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
               Next
@@ -357,8 +363,8 @@ function SectionLabel({
 }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="font-mono text-[10px] text-accent/80">{number}</span>
-      <h2 id={headingId} className="text-lg font-medium tracking-[-0.015em]">
+      <span className="font-mono text-[10px] text-accent">{number}</span>
+      <h2 id={headingId} className="text-xl font-medium tracking-[-0.02em]">
         {title}
       </h2>
       <span className="h-px flex-1 bg-line/70" aria-hidden="true" />

@@ -7,6 +7,7 @@ import Experience from "@/components/Experience";
 import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
+import Research from "@/components/Research";
 import Skills from "@/components/Skills";
 import { profile, siteConfig } from "@/data/portfolio";
 
@@ -53,9 +54,10 @@ export default function HomePage() {
       <Hero />
       <About />
       <Skills />
-      <Projects />
-      <Gallery />
       <Experience />
+      <Projects />
+      <Research />
+      <Gallery />
       <Education />
       <Certifications />
       <Contact />

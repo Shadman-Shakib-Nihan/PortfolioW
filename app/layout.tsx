@@ -1,11 +1,27 @@
 import type { Metadata, Viewport } from "next";
 import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
+import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import type { ReactNode } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ScrollProgress from "@/components/ScrollProgress";
+import SmoothScroll from "@/components/SmoothScroll";
 import { profile, siteConfig } from "@/data/portfolio";
 import "./globals.css";
+
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const editorial = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-editorial",
+  display: "swap",
+});
 
 const themeScript = `(function(){try{var t=localStorage.getItem("theme");var d=t==="light"||t==="dark"?t:"dark";var r=document.documentElement;r.classList.toggle("dark",d==="dark");r.style.colorScheme=d;r.dataset.theme=d;}catch(e){}})();`;
 
@@ -52,8 +68,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   colorScheme: "dark light",
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#07070b" },
-    { media: "(prefers-color-scheme: light)", color: "#f6f6fa" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a09" },
+    { media: "(prefers-color-scheme: light)", color: "#f2f0e8" },
   ],
 };
 
@@ -61,7 +77,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} dark`}
+      className={`${display.variable} ${editorial.variable} ${GeistMono.variable} dark`}
       suppressHydrationWarning
     >
       <head>
@@ -71,9 +87,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
+        <SmoothScroll />
+        <ScrollProgress />
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />
+        <div className="grain-overlay" aria-hidden="true" />
       </body>
     </html>
   );

@@ -85,12 +85,17 @@ export const profile = {
 export const navLinks: NavLink[] = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-  { id: "gallery", label: "Gallery" },
   { id: "experience", label: "Experience" },
-  { id: "education", label: "Education" },
+  { id: "projects", label: "Projects" },
+  { id: "research", label: "Research" },
   { id: "contact", label: "Contact" },
+];
+
+export const overflowLinks: NavLink[] = [
+  { id: "skills", label: "Skills" },
+  { id: "gallery", label: "Gallery" },
+  { id: "education", label: "Education" },
+  { id: "certifications", label: "Certifications" },
 ];
 
 export const socials: SocialItem[] = [
@@ -444,6 +449,13 @@ export const education = {
 
 export const achievements = [
   {
+    title: "Best Thesis Poster Award",
+    detail:
+      "Awarded for the undergraduate thesis on a unified forensic framework for multimodal synthetic media detection.",
+    icon: "award" as const,
+    href: "/projects/deepfake-synthetic-media-detection",
+  },
+  {
     title: "Dean's List",
     detail: "American International University-Bangladesh (AIUB).",
     icon: "award" as const,
@@ -461,6 +473,11 @@ export const achievements = [
     href: "/projects/deepfake-synthetic-media-detection",
   },
 ];
+
+export const posterAward = {
+  title: "Best Thesis Poster Award",
+  note: "Recognised for the undergraduate thesis poster on a unified forensic framework for multimodal synthetic media detection.",
+};
 
 export const certification = {
   title: "AI Engineering Bootcamp",

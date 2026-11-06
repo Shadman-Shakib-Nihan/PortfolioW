@@ -4,10 +4,10 @@ import type { Project, ProjectAccent } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
 const accentBackground: Record<ProjectAccent, string> = {
-  violet: "bg-gradient-to-br from-violet-500/20 via-card-muted to-sky-500/10",
-  blue: "bg-gradient-to-br from-sky-500/20 via-card-muted to-blue-600/10",
-  cyan: "bg-gradient-to-br from-cyan-500/15 via-card-muted to-emerald-500/10",
-  indigo: "bg-gradient-to-br from-indigo-500/20 via-card-muted to-fuchsia-500/10",
+  violet: "bg-[linear-gradient(135deg,var(--accent-soft),var(--surface)_58%,var(--card))]",
+  blue: "bg-[linear-gradient(135deg,color-mix(in_srgb,var(--accent-blue)_14%,transparent),var(--surface)_58%,var(--card))]",
+  cyan: "bg-[linear-gradient(160deg,color-mix(in_srgb,var(--accent-blue)_10%,transparent),var(--surface)_50%,var(--card))]",
+  indigo: "bg-[linear-gradient(135deg,color-mix(in_srgb,var(--foreground)_7%,transparent),var(--surface)_58%,var(--card))]",
 };
 
 type ProjectVisualProps = {
@@ -103,7 +103,7 @@ function StorefrontMock() {
         </div>
 
         <div className="min-w-0 flex-1">
-          <div className="relative flex h-16 items-end rounded-lg border border-line bg-gradient-to-br from-violet-500/25 via-violet-500/10 to-sky-500/15 p-2.5">
+          <div className="relative flex h-16 items-end rounded-lg border border-line bg-gradient-to-br from-accent/20 via-accent/5 to-accent-blue/15 p-2.5">
             <div className="space-y-1">
               <div className="h-1.5 w-24 rounded-full bg-foreground/50" />
               <div className="h-1 w-16 rounded-full bg-foreground/20" />
@@ -117,7 +117,7 @@ function StorefrontMock() {
             {[0, 1, 2].map((item) => (
               <div key={item} className="rounded-md border border-line bg-card p-1.5">
                 <div className="relative h-8 rounded bg-card-muted">
-                  <div className="absolute inset-x-1.5 bottom-1 h-4 rounded-sm bg-gradient-to-r from-violet-500/30 to-sky-500/20" />
+                  <div className="absolute inset-x-1.5 bottom-1 h-4 rounded-sm bg-gradient-to-r from-accent/30 to-accent-blue/20" />
                 </div>
                 <div className="mt-1 h-1 w-3/4 rounded-full bg-line" />
                 <div className="mt-0.5 h-1 w-1/2 rounded-full bg-line/70" />
@@ -135,7 +135,7 @@ function PostMock() {
     <div className="w-full -rotate-1 rounded-xl border border-line bg-background/95 p-3.5 shadow-2xl shadow-black/20 backdrop-blur">
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className="grid size-6 place-items-center rounded-full bg-gradient-to-br from-sky-500 to-blue-600 text-white">
+          <span className="grid size-6 place-items-center rounded-full bg-accent text-white">
             <Sparkles className="size-3" />
           </span>
           <div>
@@ -277,9 +277,9 @@ function ForensicsMock() {
         </div>
 
         {[
-          { label: "visual", width: "w-4/5", color: "bg-indigo-400" },
-          { label: "audio", width: "w-3/5", color: "bg-fuchsia-400" },
-          { label: "metadata", width: "w-2/3", color: "bg-sky-400" },
+          { label: "visual", width: "w-4/5", color: "bg-accent" },
+          { label: "audio", width: "w-3/5", color: "bg-accent-blue" },
+          { label: "metadata", width: "w-2/3", color: "bg-muted" },
         ].map((row) => (
           <div
             key={row.label}
