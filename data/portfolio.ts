@@ -50,8 +50,8 @@ const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").re
 
 export const siteConfig = {
   url: siteUrl,
-  resumePath: "/resume.pdf",
-  resumeFileName: "Shadman-Shakib-Resume.pdf",
+  resumePath: "/Nihan_CV.pdf",
+  resumeFileName: "Nihan_CV.pdf",
   title: "Shadman Shakib — AI/ML Engineer & Full-Stack Developer",
   description:
     "AI/ML-focused computer science graduate and full-stack developer building machine learning systems, computer vision tools, and end-to-end web applications.",
@@ -61,7 +61,7 @@ export const profile = {
   name: "Shadman Shakib",
   initials: "SS",
   title: "AI/ML Engineer | Full-Stack Developer | Computer Vision Researcher",
-  shortTitle: "AI/ML Engineer · Full-Stack Developer",
+  shortTitle: "AI Engineer · Full Stack Developer",
   location: "Dhaka, Bangladesh",
   email: "nihanshadman1@gmail.com",
   github: "https://github.com/Shadman-Shakib-Nihan",

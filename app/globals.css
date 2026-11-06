@@ -167,6 +167,14 @@
     }
   }
 
+  .resume-shine {
+    animation: resume-shine 3.6s ease-in-out infinite;
+  }
+
+  .resume-glow {
+    animation: resume-glow 3.2s ease-out infinite;
+  }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -174,6 +182,26 @@
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  @keyframes resume-shine {
+    0%,
+    40% {
+      transform: translateX(0) skewX(-14deg);
+    }
+    100% {
+      transform: translateX(340%) skewX(-14deg);
+    }
+  }
+
+  @keyframes resume-glow {
+    0%,
+    70% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 16%, transparent);
+    }
+    100% {
+      box-shadow: 0 0 0 12px transparent;
+    }
   }
 
   .text-gradient {

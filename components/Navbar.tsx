@@ -124,8 +124,8 @@ export default function Navbar() {
             </span>
             <span className="hidden leading-tight sm:block">
               <span className="block text-[13px] font-medium tracking-[-0.01em]">{profile.name}</span>
-              <span className="block font-mono text-[8px] uppercase tracking-[0.2em] text-muted">
-                AI · Software
+              <span className="block font-mono text-[8px] uppercase tracking-[0.18em] text-muted">
+                {profile.shortTitle}
               </span>
             </span>
           </Link>

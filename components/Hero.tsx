@@ -4,6 +4,7 @@ import { motion, useReducedMotion, useScroll, useTransform, type Variants } from
 import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
 import Link from "next/link";
 import ParticleField from "./ParticleField";
+import ResumeButton from "./ResumeButton";
 import { profile } from "@/data/portfolio";
 
 const container: Variants = {
@@ -61,7 +62,7 @@ export default function Hero() {
             Portfolio — 2026
           </motion.span>
           <motion.span variants={fade} className="hidden font-mono sm:inline">
-            AI engineering · Software
+            {profile.shortTitle}
           </motion.span>
           <motion.span variants={fade} className="inline-flex items-center gap-1.5 font-mono">
             <MapPin className="size-3" aria-hidden="true" />
@@ -146,6 +147,11 @@ export default function Hero() {
                     aria-hidden="true"
                   />
                 </Link>
+                <ResumeButton
+                  variant="glow"
+                  label="Download CV"
+                  className="resume-glow"
+                />
               </div>
             </motion.div>
           </div>
